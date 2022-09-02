@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+#define new_max(x, y) (((x) >= (y)) ? (x) : (y))
 /**
  * @brief
  * 
@@ -10,7 +11,10 @@ if (tree == NULL)
 {
 return (0);
 }
-a = tree->left ? binary_tree_depth(tree->left) + 1 : 0;
-b = tree->right ?  binary_tree_depth(tree->right) + 1 : 0;
-return (((a) > (b)) ? (a) : (b));
+a =  binary_tree_depth(tree->left);
+b =  binary_tree_depth(tree->right);
+if(a > b)
+return (a + 1);
+else
+return (b + 1);
 }
